@@ -1262,16 +1262,13 @@ a.card {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
   text-transform: uppercase;
-  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   position: relative;
-  overflow: hidden;
-  box-shadow: 4px 4px 0 rgba(0,0,0,0.15);
-  border: 3px solid var(--black);
+  /* Removed border and box-shadow to fit the flat geometric aesthetic */
 }
 
 .blob-item:hover {
-  transform: scale(1.05) translate(-4px, -4px) rotate(2deg);
-  box-shadow: 12px 12px 0 var(--black);
+  transform: scale(1.05); /* Retained subtle scale */
 }
 
 .blob-content {
@@ -1281,38 +1278,37 @@ a.card {
   background: white;
   padding: 8px 16px;
   border-radius: 4px;
-  border: 2px solid var(--black);
 }
 
-/* Formes Organiques Aléatoires */
+/* Formes Géométriques (Style Cutout) */
 .blob-1 {
   width: 260px; height: 320px;
-  border-radius: 130px 130px 0 0; /* Arche classique */
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 75% 100%, 0 100%);
   background-color: var(--lime);
 }
 .blob-2 {
-  width: 320px; height: 200px;
-  border-radius: 100px; /* Forme capsule / pilule */
+  width: 320px; height: 320px;
+  clip-path: polygon(0 0, 60% 0, 60% 40%, 100% 40%, 100% 100%, 0 100%);
   background-color: var(--orange);
 }
 .blob-3 {
-  width: 240px; height: 300px;
-  border-radius: 120px 24px 120px 24px; /* Feuille douce / asymétrique */
+  width: 300px; height: 300px;
+  clip-path: polygon(40% 0, 100% 0, 100% 100%, 0 100%, 0 40%, 40% 40%);
   background-color: var(--teal-dark);
 }
 .blob-4 {
   width: 280px; height: 280px;
-  border-radius: 140px 140px 140px 0; /* Dôme 3 quarts */
+  clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
   background-color: var(--cream);
 }
 .blob-5 {
-  width: 220px; height: 300px;
-  border-radius: 0 0 110px 110px; /* Arche inversée */
+  width: 280px; height: 340px;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%, 0 50%);
   background-color: var(--mauve);
 }
 .blob-6 {
-  width: 300px; height: 240px;
-  border-radius: 24px 120px 24px 24px; /* Asymétrie architecturale */
+  width: 300px; height: 300px;
+  clip-path: polygon(0 50%, 50% 50%, 50% 0, 100% 0, 100% 100%, 0 100%);
   background-color: var(--white);
 }
 
