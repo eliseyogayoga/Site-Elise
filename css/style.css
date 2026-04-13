@@ -1286,33 +1286,33 @@ a.card {
 
 /* Formes Organiques Aléatoires */
 .blob-1 {
-  width: 260px; height: 260px;
-  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  width: 260px; height: 320px;
+  border-radius: 130px 130px 0 0; /* Arche classique */
   background-color: var(--lime);
 }
 .blob-2 {
-  width: 290px; height: 230px;
-  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  width: 320px; height: 200px;
+  border-radius: 100px; /* Forme capsule / pilule */
   background-color: var(--orange);
 }
 .blob-3 {
-  width: 240px; height: 280px;
-  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  width: 240px; height: 300px;
+  border-radius: 120px 24px 120px 24px; /* Feuille douce / asymétrique */
   background-color: var(--teal-dark);
 }
 .blob-4 {
   width: 280px; height: 280px;
-  border-radius: 50% 50% 30% 70% / 50% 70% 30% 50%;
+  border-radius: 140px 140px 140px 0; /* Dôme 3 quarts */
   background-color: var(--cream);
 }
 .blob-5 {
-  width: 220px; height: 220px;
-  border-radius: 70% 30% 50% 50% / 30% 50% 50% 70%;
+  width: 220px; height: 300px;
+  border-radius: 0 0 110px 110px; /* Arche inversée */
   background-color: var(--mauve);
 }
 .blob-6 {
-  width: 300px; height: 250px;
-  border-radius: 45% 55% 65% 35% / 35% 60% 40% 65%;
+  width: 300px; height: 240px;
+  border-radius: 24px 120px 24px 24px; /* Asymétrie architecturale */
   background-color: var(--white);
 }
 
