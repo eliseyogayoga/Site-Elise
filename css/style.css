@@ -228,34 +228,40 @@ button {
 
 .hero-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 40px 48px;
-  background: linear-gradient(to bottom, rgba(26, 26, 26, 0.5) 0%, rgba(26, 26, 26, 0.2) 80%, transparent 100%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(500px, 90vw);
+  aspect-ratio: 1/1;
+  background-color: var(--orange);
+  border-radius: 50%;
+  padding: 40px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 4px solid var(--black);
+  box-shadow: 12px 12px 0 rgba(0,0,0,0.15);
 }
 
 .hero-overlay h1 {
-  font-size: 2.8rem;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
   font-weight: 800;
   line-height: 1.1;
   text-transform: uppercase;
-  letter-spacing: -0.01em;
-  color: var(--cream);
-  max-width: 650px;
-  margin-bottom: 12px;
+  color: var(--black);
+  margin-bottom: 20px;
+  max-width: 90%;
 }
 
 .hero-overlay .hero-sub {
-  font-size: 1.05rem;
-  font-weight: 500;
-  color: rgba(249, 245, 234, 0.85);
-  letter-spacing: 0.02em;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  font-weight: 700;
+  color: var(--black);
   text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.9;
 }
 
 .hero-bar {
@@ -1039,7 +1045,7 @@ a.card {
 
 @media (max-width: 968px) {
   .hero-overlay {
-    padding: 32px;
+    width: min(400px, 95vw);
   }
 
   .hero-overlay h1 {
@@ -1333,7 +1339,8 @@ a.card {
   }
 
   .hero-overlay {
-    padding: 24px;
+    width: min(320px, 95vw);
+    padding: 20px;
   }
 
   .hero-overlay .hero-sub {
@@ -1376,7 +1383,8 @@ a.card {
   }
 
   .hero-overlay {
-    padding: 20px 16px;
+    width: min(280px, 95vw);
+    padding: 15px;
   }
 
   .btn {
