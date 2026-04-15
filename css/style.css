@@ -228,9 +228,9 @@ button {
 
 .hero-overlay {
   position: absolute;
-  top: 50%;
-  left: 10%;
-  transform: translateY(-50%);
+  top: 10%;
+  left: 8%;
+  transform: none;
   width: min(450px, 80vw);
   padding: 20px;
   background: transparent;
