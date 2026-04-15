@@ -1384,3 +1384,81 @@ a.card {
     font-size: 0.8rem;
   }
 }
+
+/* ==========================================================================
+   PAGE TÉMOIGNAGES (Style Néo-Brutaliste)
+   ========================================================================== */
+
+.testimonials-page {
+  padding: 80px 0;
+  background-color: var(--lime); /* Fond jaune/lime iconique */
+}
+
+.testimony-grid-page {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 32px;
+  align-items: start;
+}
+
+.testimony-card-page {
+  padding: 40px;
+  border: 3px solid var(--black);
+  box-shadow: 8px 8px 0 var(--black);
+  transition: transform 0.2s ease;
+}
+
+.testimony-card-page:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 12px 12px 0 var(--black);
+}
+
+.testimony-card-page h3 {
+  font-family: 'Walter Turncoat', cursive;
+  font-size: 1.8rem;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--black);
+  padding-bottom: 8px;
+  display: inline-block;
+}
+
+.testimony-card-page p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.testimony-card-page .tag {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: var(--black);
+  color: var(--white);
+  padding: 4px 12px;
+  display: inline-block;
+}
+
+/* Color variations */
+.card-orange { background-color: var(--orange); color: var(--black); }
+.card-teal   { background-color: var(--teal-dark); color: var(--white); }
+.card-teal h3 { border-color: var(--white); }
+.card-teal .tag { background: var(--white); color: var(--teal-dark); }
+
+.card-mauve  { background-color: var(--mauve); color: var(--white); }
+.card-mauve h3 { border-color: var(--white); }
+.card-mauve .tag { background: var(--white); color: var(--mauve); }
+
+.card-cream  { background-color: var(--cream); color: var(--black); }
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .testimony-grid-page {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .testimony-card-page {
+    padding: 30px;
+  }
+}
