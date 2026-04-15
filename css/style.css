@@ -248,6 +248,7 @@ button {
   color: var(--cream);
   max-width: 650px;
   margin-bottom: 12px;
+  text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.4);
 }
 
 .hero-overlay .hero-sub {
@@ -256,6 +257,7 @@ button {
   color: rgba(249, 245, 234, 0.85);
   letter-spacing: 0.02em;
   text-transform: uppercase;
+  text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.4);
 }
 
 .hero-bar {
