@@ -228,15 +228,14 @@ button {
 
 .hero-overlay {
   position: absolute;
-  top: 10%;
-  left: 8%;
-  transform: none;
-  width: min(450px, 80vw);
-  padding: 20px;
+  top: 25px;
+  left: 50px;
+  width: min(400px, 80vw);
+  padding: 10px;
   background: transparent;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
   text-align: left;
 }
