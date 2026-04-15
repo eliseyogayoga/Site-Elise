@@ -247,16 +247,18 @@ button {
   line-height: 1.1;
   text-transform: uppercase;
   letter-spacing: -0.01em;
-  color: var(--black);
+  color: var(--cream);
   margin-bottom: 12px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .hero-overlay .hero-sub {
   font-size: 1.05rem;
   font-weight: 700;
-  color: var(--black);
+  color: var(--cream);
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
 }
 }
 
