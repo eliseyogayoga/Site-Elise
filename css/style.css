@@ -228,15 +228,17 @@ button {
 
 .hero-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 40px 48px;
-  background: linear-gradient(to bottom, rgba(26, 26, 26, 0.5) 0%, rgba(26, 26, 26, 0.2) 80%, transparent 100%);
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  width: min(450px, 80vw);
+  padding: 20px;
+  background: transparent;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: flex-start;
+  text-align: left;
 }
 
 .hero-overlay h1 {
@@ -245,19 +247,17 @@ button {
   line-height: 1.1;
   text-transform: uppercase;
   letter-spacing: -0.01em;
-  color: var(--cream);
-  max-width: 650px;
+  color: var(--black);
   margin-bottom: 12px;
-  text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.4);
 }
 
 .hero-overlay .hero-sub {
   font-size: 1.05rem;
-  font-weight: 500;
-  color: rgba(249, 245, 234, 0.85);
-  letter-spacing: 0.02em;
+  font-weight: 700;
+  color: var(--black);
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.4);
+}
 }
 
 .hero-bar {
