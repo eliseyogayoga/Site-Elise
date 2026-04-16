@@ -1181,6 +1181,47 @@ a.card {
   gap: 24px;
 }
 
+.photo-item {
+  border: var(--border);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 4px 4px 0 var(--black);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background: var(--white);
+}
+
+.photo-item:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 8px 8px 0 var(--black);
+}
+
+.photo-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.photo-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: var(--black);
+  color: var(--white);
+  padding: 8px 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transform: translateY(100%);
+  transition: transform 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.photo-item:hover .photo-caption {
+  transform: translateY(0);
+}
+
 .photo-placeholder {
   border: var(--border);
   display: flex;
