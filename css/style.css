@@ -443,6 +443,39 @@ a.card {
   line-height: 1.6;
 }
 
+/* ========== QUOTE SECTION ========== */
+
+.section-quote {
+  background-color: var(--teal-dark);
+  color: var(--cream);
+  padding: 100px 0;
+  border-top: var(--border);
+  border-bottom: var(--border);
+}
+
+.container-narrow {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.quote-text {
+  font-family: var(--font-body);
+  font-size: 2.2rem;
+  font-weight: 500;
+  line-height: 1.35;
+  font-style: italic;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .section-quote {
+    padding: 64px 0;
+  }
+  .quote-text {
+    font-size: 1.5rem;
+  }
+}
+
 /* ========== CTA BAND ========== */
 
 .cta-band {
