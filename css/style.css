@@ -467,6 +467,17 @@ a.card {
   text-align: center;
 }
 
+.quote-text cite {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 24px;
+  font-style: normal;
+  opacity: 0.8;
+}
+
 @media (max-width: 768px) {
   .section-quote {
     padding: 64px 0;
