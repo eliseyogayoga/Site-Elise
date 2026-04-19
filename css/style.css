@@ -1379,9 +1379,11 @@ a.card {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .blob-item.with-image:hover {
+  clip-path: none !important;
   z-index: 10;
   transform: scale(1.02);
   box-shadow: 0 12px 32px rgba(0,0,0,0.1);
