@@ -1471,12 +1471,18 @@ a.card {
     display: flex;
   }
 
-  .hero-overlay h1 {
-    font-size: 1.6rem;
-  }
-
   .hero-overlay {
     padding: 24px;
+    align-items: flex-start;
+    text-align: left;
+    left: 20px;
+    top: 20px;
+  }
+
+  .hero-overlay h1,
+  .hero-overlay .hero-sub {
+    color: #333333;
+    text-shadow: none;
   }
 
   .hero-overlay .hero-sub {
@@ -1519,7 +1525,9 @@ a.card {
   }
 
   .hero-overlay {
-    padding: 20px 16px;
+    padding: 16px;
+    left: 16px;
+    top: 16px;
   }
 
   .btn {
