@@ -1342,10 +1342,16 @@ a.card {
 .gallery-blob-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 60px;
+  gap: 80px 60px;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   padding: 40px 0 80px 0;
+}
+
+.blob-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .blob-item {
@@ -1368,6 +1374,20 @@ a.card {
   transform: scale(1.05); /* Retained subtle scale */
 }
 
+.blob-item.with-image {
+  cursor: pointer;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.blob-item.with-image:hover {
+  clip-path: none !important;
+  z-index: 10;
+  transform: scale(1.02);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+}
+
 .blob-content {
   opacity: 0.9;
   letter-spacing: 0.05em;
@@ -1375,6 +1395,28 @@ a.card {
   background: white;
   padding: 8px 16px;
   border-radius: 4px;
+  transition: opacity 0.3s ease;
+}
+
+.blob-item.with-image:hover .blob-content {
+  opacity: 0;
+}
+
+.blob-caption {
+  display: block;
+  margin-top: 16px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--mauve);
+  text-align: center;
+  font-style: italic;
+  opacity: 0.7;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.blob-caption em {
+  font-weight: 600;
 }
 
 /* Formes Géométriques (Style Cutout) */
