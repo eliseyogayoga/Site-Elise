@@ -89,10 +89,12 @@
       <div class="gallery-blob-grid">
         <!-- Petit Totem 2025 -->
         <div class="blob-card">
-          <div class="blob-item blob-1 with-image fade-in" style="background-image: url('assets/images/dessin-elise-1.jpg?v=1');">
-               <div class="blob-content">Voir en entier</div>
+          <div class="blob-item blob-1 with-image fade-in" style="background-image: url('assets/images/dessin-elise-1.jpg?v=1');" data-full="assets/images/dessin-elise-1.jpg?v=1">
           </div>
-          <p class="blob-caption"><em>"Les petits totems" #9</em>, 2025 — technique mixte sur papier</p>
+          <p class="blob-caption">
+            <span class="caption-title">"Les petits totems" #9, 2025</span>
+            <span class="caption-tech">technique mixte sur papier</span>
+          </p>
         </div>
         <div class="blob-card">
           <div class="blob-item blob-2 fade-in">
@@ -165,6 +167,13 @@
       </div>
     </div>
   </footer>
+
+  <!-- LIGHTBOX MODAL -->
+  <div id="lightbox" class="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img" src="" alt="Zoom dessin">
+    <div id="lightbox-caption" class="lightbox-caption-text"></div>
+  </div>
 
   <script src="js/main.js"></script>
 </body>

@@ -39,4 +39,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
     fadeEls.forEach(el => observer.observe(el));
   }
+
+  // LIGHTBOX LOGIC
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxCaption = document.getElementById('lightbox-caption');
+  const blobItems = document.querySelectorAll('.blob-item.with-image');
+
+  if (lightbox && blobItems.length > 0) {
+    blobItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const fullImgUrl = item.getAttribute('data-full');
+        // Find the caption structure
+        const parentCard = item.closest('.blob-card');
+        const captionTitle = parentCard ? parentCard.querySelector('.caption-title').innerHTML : '';
+        const captionTech = parentCard ? parentCard.querySelector('.caption-tech').innerHTML : '';
+
+        if (fullImgUrl) {
+          lightboxImg.src = fullImgUrl;
+          lightboxCaption.innerHTML = `
+            <span class="caption-title">${captionTitle}</span>
+            <span class="caption-tech">${captionTech}</span>
+          `;
+          lightbox.classList.add('open');
+          document.body.style.overflow = 'hidden'; // Prevent scroll
+        }
+      });
+    });
+
+    // Close on click anywhere
+    lightbox.addEventListener('click', () => {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+      // Small delay to clear src after fade out
+      setTimeout(() => {
+        lightboxImg.src = '';
+      }, 300);
+    });
+  }
 });
