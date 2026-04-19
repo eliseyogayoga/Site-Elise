@@ -1108,7 +1108,7 @@ a.card {
   }
 
   .about-image {
-    aspect-ratio: 16/9;
+    aspect-ratio: auto;
     border-right: none;
     border-bottom: var(--border);
   }
