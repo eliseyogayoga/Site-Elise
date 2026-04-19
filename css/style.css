@@ -1405,6 +1405,7 @@ a.card {
 }
 
 .caption-title {
+  display: block;
   font-size: 1rem;
   font-weight: 600;
   color: var(--black);
@@ -1412,6 +1413,7 @@ a.card {
 }
 
 .caption-tech {
+  display: block;
   font-size: 0.8rem;
   color: var(--mauve);
   font-style: italic;
