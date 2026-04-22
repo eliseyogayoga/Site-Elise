@@ -642,6 +642,14 @@ a.card {
   font-size: 0.9rem;
 }
 
+.cours-card .cours-note {
+  margin-top: 12px;
+  font-size: 0.8rem;
+  color: var(--orange);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
 .planning-section {
   margin-top: 60px;
 }
