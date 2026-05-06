@@ -1397,6 +1397,11 @@ a.card {
   box-shadow: 0 12px 32px rgba(0,0,0,0.1);
 }
 
+/* Nettoyage du fond blanc des dessins sur fond papier */
+.blob-item.clean-bg {
+  filter: brightness(1.08) contrast(1.12) saturate(1.1);
+}
+
 .blob-content {
   opacity: 1;
   letter-spacing: 0.05em;
@@ -1654,6 +1659,7 @@ a.card {
   border: 4px solid white;
   transform: scale(0.95);
   transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  mix-blend-mode: multiply; /* fond blanc du papier devient transparent */
 }
 
 .lightbox.open .lightbox-content {
