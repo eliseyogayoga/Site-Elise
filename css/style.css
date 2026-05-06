@@ -1388,14 +1388,21 @@ a.card {
   background-repeat: no-repeat;
   background-position: center;
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-  filter: brightness(1.08) contrast(1.12) saturate(1.1);
+  /* Utilisation du mode produit pour faire disparaître les fonds blancs du papier, 
+     rendant le résultat parfaitement uniforme ! */
+  mix-blend-mode: multiply;
 }
 
 .blob-item.with-image:hover {
   clip-path: none !important;
   z-index: 10;
-  transform: scale(1.02);
+  transform: scale(1.05);
   box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+  /* On permet à l'image de s'afficher en entier sans être coupée */
+  background-size: contain;
+  background-color: var(--white);
+  /* Survol sur fond blanc pour bien voir les couleurs originales */
+  mix-blend-mode: normal;
 }
 
 
