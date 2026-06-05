@@ -14,7 +14,8 @@
 
   --nav-height: 64px;
   --marquee-height: 40px;
-  --top-bar-height: calc(var(--nav-height) + var(--marquee-height));
+  --marquee-news-height: 40px;
+  --top-bar-height: calc(var(--nav-height) + var(--marquee-height) + var(--marquee-news-height));
   --max-width: 1280px;
   --border: 2px solid var(--black);
 }
@@ -1075,6 +1076,36 @@ a.card {
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
+}
+
+.marquee-news {
+  position: fixed;
+  top: calc(var(--nav-height) + var(--marquee-height));
+  left: 0;
+  width: 100%;
+  z-index: 998;
+  border-bottom: var(--border);
+  background: var(--orange);
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 10px 0;
+  height: var(--marquee-news-height);
+  display: flex;
+  align-items: center;
+}
+
+.marquee-news .marquee-inner {
+  display: inline-flex;
+  animation: marquee 35s linear infinite;
+}
+
+.marquee-news .marquee-inner span {
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--white);
+  padding: 0 40px;
 }
 
 /* ========== ANIMATIONS ========== */
