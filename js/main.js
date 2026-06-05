@@ -62,6 +62,9 @@ document.addEventListener('DOMContentLoaded', () => {
             <span class="caption-tech">${captionTech}</span>
           `;
           lightbox.classList.add('open');
+          // Pass the blob class to the lightbox for specific CSS filtering
+          const blobClass = Array.from(item.classList).find(c => c.startsWith('blob-'));
+          lightbox.setAttribute('data-blob', blobClass);
           document.body.style.overflow = 'hidden'; // Prevent scroll
         }
       });

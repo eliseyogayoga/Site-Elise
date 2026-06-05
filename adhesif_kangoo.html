@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adhésif Kangoo - YAKA YOGA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --orange: #f0703d;
+      --cream: #eee3cd;
+      --black: #1a1a1a;
+      --teal-dark: #376865;
+      --border-size: 8px;
+    }
+
+    @page {
+      size: 604mm 404mm; /* 60x40 cm + 2mm fonds perdus */
+      margin: 0;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #ccc;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      font-family: 'DM Sans', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .adhesif {
+      width: 604mm;
+      height: 404mm;
+      background-color: var(--cream);
+      position: relative;
+      overflow: hidden;
+      box-sizing: border-box;
+      /* Marge de sécurité (inclut les fonds perdus) */
+      padding: 10mm; 
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      display: flex;
+      flex-direction: column;
+    }
+
+    @media print {
+      body { background-color: transparent; padding: 0; }
+      .adhesif { box-shadow: none; }
+      .no-print { display: none !important; }
+    }
+
+
+
+    .content {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+      padding: 15mm 25mm;
+      box-sizing: border-box;
+    }
+
+    .header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5mm;
+      margin-top: 15mm;
+    }
+
+    .logo {
+      width: 280mm;
+      mix-blend-mode: multiply;
+    }
+
+    .accroche {
+      font-size: 48pt;
+      font-weight: 800;
+      color: var(--black);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    .studio {
+      background-color: var(--black);
+      color: var(--cream);
+      font-size: 40pt;
+      font-weight: 700;
+      padding: 8mm 25mm;
+      border-radius: 80px;
+      margin-top: 15mm;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      text-align: center;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      width: 100%;
+      margin-bottom: 5mm;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 12mm;
+    }
+
+    .contact-line {
+      display: flex;
+      align-items: center;
+      gap: 6mm;
+      font-size: 45pt;
+      font-weight: 800;
+      color: var(--black);
+    }
+
+    .contact-label {
+      color: var(--orange);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 800;
+      width: 35mm;
+    }
+
+    .qr-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6mm;
+    }
+
+    .qr-code {
+      width: 85mm;
+      height: 85mm;
+      border: var(--border-size) solid var(--orange);
+      padding: 4mm;
+      background: white; 
+      border-radius: 12px;
+    }
+
+    .qr-text {
+      font-size: 24pt;
+      font-weight: 800;
+      color: var(--orange);
+      text-transform: uppercase;
+    }
+
+    .hero-bg {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      width: 100%;
+      height: 60%;
+      object-fit: cover;
+      object-position: center bottom;
+      z-index: 1;
+      opacity: 0.85; /* Plus visible */
+      mix-blend-mode: multiply;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="adhesif">
+    <img src="assets/images/hero.png" class="hero-bg" alt="fond illustration">
+    
+    <div class="content">
+      <div class="header">
+        <img src="assets/images/logo.png" alt="YAKA YOGA" class="logo">
+        <div class="accroche">Yoga postural moderne</div>
+        <div class="studio">Studio nomade dans la Nièvre et l'Yonne</div>
+      </div>
+
+      <div class="footer">
+        <div class="contact-info">
+          <div class="contact-line">
+            <span class="contact-label">Tél</span>
+            06 67 21 07 33
+          </div>
+          <div class="contact-line">
+            <span class="contact-label">Site</span>
+            yakayoga-nievre.com
+          </div>
+        </div>
+
+        <div class="qr-container">
+          <img src="assets/images/qr-code.png" alt="QR Code Yaka Yoga" class="qr-code">
+          <div class="qr-text">Scannez-moi</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="no-print" style="position: fixed; top: 20px; right: 20px; max-width: 350px; background: white; padding: 20px; font-family: sans-serif; font-size: 14px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+    <h2 style="margin-top:0;">Générer l'Adhésif Kangoo</h2>
+    <p>Format configuré : <b>60 x 40 cm</b> (paysage).</p>
+    <p>Ouvrez dans Chrome, faites <b>Cmd+P</b>, choisissez <b>Enregistrer au format PDF</b>.</p>
+    <ul>
+      <li>Marges : <b>Aucune</b></li>
+      <li>Échelle : <b>Par défaut</b></li>
+      <li>Graphiques d'arrière-plan : <b>Coché</b></li>
+    </ul>
+    <p style="color: #666; font-size: 12px; margin-top: 15px;">Pour le voir en entier sur l'écran, vous devrez peut-être dézoomer (Cmd -).</p>
+  </div>
+
+</body>
+</html>

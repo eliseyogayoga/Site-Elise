@@ -1391,6 +1391,8 @@ a.card {
   /* Utilisation du mode produit pour faire disparaître les fonds blancs du papier, 
      rendant le résultat parfaitement uniforme ! */
   mix-blend-mode: multiply;
+  /* Filtre "pro" pour uniformiser l'exposition et le contraste (base sur dessin n°1) */
+  filter: brightness(1.08) contrast(1.12) saturate(1.1);
 }
 
 .blob-item.with-image:hover {
@@ -1401,8 +1403,14 @@ a.card {
   /* On permet à l'image de s'afficher en entier sans être coupée */
   background-size: contain;
   background-color: var(--white);
-  /* Survol sur fond blanc pour bien voir les couleurs originales */
+  /* Survol sur fond blanc : on garde un léger filtre pour garder le côté "pro" et propre */
   mix-blend-mode: normal;
+  filter: brightness(1.04) contrast(1.08);
+}
+
+/* Correction spécifique pour le dessin n°4 (fond plus gris) */
+.blob-4 .blob-item.with-image {
+  filter: brightness(1.22) contrast(1.35) saturate(1.1);
 }
 
 
@@ -1665,6 +1673,12 @@ a.card {
   transform: scale(0.95);
   transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   mix-blend-mode: multiply; /* fond blanc du papier devient transparent */
+  filter: brightness(1.08) contrast(1.12) saturate(1.1);
+}
+
+/* Correction spécifique pour le dessin n°4 dans la lightbox */
+[data-blob="blob-4"] .lightbox-content {
+  filter: brightness(1.25) contrast(1.45) saturate(1.1) !important;
 }
 
 .lightbox.open .lightbox-content {
