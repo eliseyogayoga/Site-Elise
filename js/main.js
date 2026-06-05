@@ -80,4 +80,15 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 300);
     });
   }
+
+  // LOGIQUE POUR LA BANNIERE PROMO (Cacher après le 26 Juin 2026)
+  const promoBanner = document.getElementById('promo-banner');
+  if (promoBanner) {
+    const expirationDate = new Date('2026-06-27T00:00:00');
+    if (new Date() >= expirationDate) {
+      promoBanner.style.display = 'none';
+      // Ajuster le header sur mobile si la bannière disparait
+      document.documentElement.style.setProperty('--marquee-news-height', '0px');
+    }
+  }
 });

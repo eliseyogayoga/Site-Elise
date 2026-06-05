@@ -1078,7 +1078,7 @@ a.card {
   100% { transform: translateX(-50%); }
 }
 
-.marquee-news {
+.announcement-bar {
   position: fixed;
   top: calc(var(--nav-height) + var(--marquee-height));
   left: 0;
@@ -1086,26 +1086,29 @@ a.card {
   z-index: 998;
   border-bottom: var(--border);
   background: var(--orange);
-  overflow: hidden;
-  white-space: nowrap;
   padding: 10px 0;
-  height: var(--marquee-news-height);
   display: flex;
   align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
-.marquee-news .marquee-inner {
-  display: inline-flex;
-  animation: marquee 35s linear infinite;
-}
-
-.marquee-news .marquee-inner span {
+.announcement-bar .container {
   font-size: 0.85rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
   color: var(--white);
-  padding: 0 40px;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.announcement-bar strong {
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.announcement-bar em {
+  font-weight: 800;
+  font-style: normal;
+  text-decoration: underline;
 }
 
 /* ========== ANIMATIONS ========== */

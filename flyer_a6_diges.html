@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flyer A6 - YAKA YOGA Diges</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=Walter+Turncoat&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --orange: #f0703d;
+      --lime: #e1f121;
+      --teal-dark: #376865;
+      --cream: #eee3cd;
+      --white: #ffffff;
+      --black: #1a1a1a;
+      --border: 2px solid var(--black);
+    }
+
+    @page {
+      size: 105mm 148mm;
+      margin: 0;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #ccc;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      font-family: 'DM Sans', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+
+    .flyer {
+      width: 105mm;
+      height: 148mm;
+      position: relative;
+      overflow: hidden;
+      box-sizing: border-box;
+      background-color: var(--cream);
+      color: var(--black);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    @media print {
+      body {
+        background-color: transparent;
+        display: block;
+        padding: 0;
+        gap: 0;
+      }
+      .flyer {
+        box-shadow: none;
+        page-break-after: always;
+      }
+      .no-print { display: none !important; }
+    }
+
+    .bg-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 40% center;
+      z-index: 1;
+      mix-blend-mode: multiply;
+      opacity: 0.8;
+    }
+
+    .content {
+      position: absolute;
+      top: 5mm;
+      left: 5mm;
+      right: 5mm;
+      bottom: 5mm;
+      z-index: 5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .logo-img {
+      width: 60mm;
+      height: auto;
+      mix-blend-mode: multiply;
+      margin-top: 2mm;
+      margin-bottom: 2mm;
+    }
+
+    .subtitle {
+      font-size: 10pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--black);
+      background: rgba(238, 227, 205, 0.8);
+      padding: 1mm 3mm;
+      border-radius: 20px;
+      margin-bottom: 15mm;
+    }
+
+    .main-title {
+      font-size: 38pt;
+      font-weight: 800;
+      line-height: 0.9;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      color: var(--black);
+      margin-bottom: 4mm;
+      text-shadow: 2px 2px 0px var(--cream);
+    }
+
+    .slogan {
+      font-size: 12pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--teal-dark);
+      background: var(--lime);
+      padding: 1.5mm 4mm;
+      border: var(--border);
+      transform: rotate(-2deg);
+      margin-bottom: 12mm;
+      box-shadow: 2px 2px 0px var(--black);
+    }
+
+    .badge {
+      position: absolute;
+      top: 60mm;
+      left: -2mm;
+      background: var(--orange);
+      color: var(--white);
+      width: 32mm;
+      height: 32mm;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-family: 'Walter Turncoat', cursive;
+      font-size: 15pt;
+      line-height: 1;
+      transform: rotate(-15deg);
+      border: var(--border);
+      box-shadow: 2px 2px 0px var(--black);
+      z-index: 10;
+    }
+
+    .bottom-box {
+      margin-top: auto;
+      background: var(--teal-dark);
+      color: var(--cream);
+      width: 100%;
+      padding: 5mm;
+      border: var(--border);
+      border-radius: 10px;
+      box-sizing: border-box;
+      box-shadow: 3px 3px 0px var(--black);
+    }
+
+    .location {
+      font-size: 16pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      margin-bottom: 2mm;
+      color: var(--lime);
+    }
+
+    .cta {
+      font-size: 11pt;
+      font-weight: 700;
+      margin-bottom: 3mm;
+    }
+
+    .contact-info {
+      font-size: 10pt;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+    .contact-info strong {
+      font-family: 'Walter Turncoat', cursive;
+      font-size: 14pt;
+      display: block;
+      margin-bottom: 1mm;
+      color: var(--orange);
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="flyer">
+    <img src="assets/images/hero.png" alt="Illustration fond" class="bg-img">
+    
+    <div class="content">
+      <img src="assets/images/logo.png" alt="YAKA YOGA Logo" class="logo-img">
+      
+      <div class="subtitle">Yoga postural moderne & mobilité</div>
+      
+      <div class="main-title">
+        YOGA<br>DYNAMIQUE
+      </div>
+      
+      <div class="slogan">Bouger juste, respirer mieux</div>
+
+      <div class="bottom-box">
+        <div class="location">À Diges le jeudi soir</div>
+        <div class="cta">Vous êtes partant(e)s ? Contactez-moi !</div>
+        <div class="contact-info">
+          <strong>Elise</strong>
+          06 67 21 07 33<br>
+          elise.yogayoga@gmail.com
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="no-print" style="max-width: 600px; background: white; padding: 20px; font-family: sans-serif; font-size: 14px; border-radius: 8px;">
+    <h2>Instructions d'impression (Format A6)</h2>
+    <p>Ce flyer est conçu aux dimensions exactes du format A6 (105 x 148 mm).</p>
+    <p>Pour l'enregistrer en PDF prêt pour l'imprimeur :</p>
+    <ul>
+      <li>Ouvrez ce fichier dans Chrome ou Safari</li>
+      <li>Faites <b>Cmd+P</b></li>
+      <li>Destination : <b>Enregistrer au format PDF</b></li>
+      <li>Taille du papier : <b>A6</b> (si non disponible, choisissez Personnalisé et entrez 105x148mm)</li>
+      <li>Marges : <b>Aucune</b></li>
+      <li>Échelle : <b>Par défaut</b> (100%)</li>
+      <li>Options : <b>Cochez "Graphiques d'arrière-plan"</b></li>
+    </ul>
+  </div>
+
+</body>
+</html>
