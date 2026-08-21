@@ -10,12 +10,11 @@
   <style>
     :root {
       --orange: #f0703d;
-      --lime: #e1f121;
-      --teal-dark: #376865;
+      --lime: #c8d44e;
+      --teal: #3d8c6e;
       --cream: #f9f5ea;
       --white: #ffffff;
       --black: #1a1a1a;
-      --border: 3px solid var(--black);
     }
 
     @page {
@@ -25,8 +24,8 @@
 
     body {
       margin: 0;
-      padding: 0;
-      background-color: #ccc;
+      padding: 20px;
+      background-color: #888;
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
       font-family: 'DM Sans', sans-serif;
@@ -34,8 +33,6 @@
       flex-direction: column;
       align-items: center;
       gap: 20px;
-      padding-top: 20px;
-      padding-bottom: 20px;
     }
 
     .poster {
@@ -46,161 +43,264 @@
       box-sizing: border-box;
       background-color: var(--cream);
       color: var(--black);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      display: flex;
+      flex-direction: column;
     }
 
     @media print {
-      body {
-        background-color: transparent;
-        display: block;
-        padding: 0;
-        gap: 0;
-      }
-      .poster {
-        box-shadow: none;
-        page-break-after: always;
-      }
+      body { background: transparent; padding: 0; }
+      .poster { box-shadow: none; }
       .no-print { display: none !important; }
     }
 
-    .bg-img {
+    /* ======= BLOBS DE FOND ======= */
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      z-index: 1;
+      opacity: 0.85;
+    }
+    .blob-orange {
+      background: var(--orange);
+      width: 75mm;
+      height: 75mm;
+      top: -15mm;
+      left: -15mm;
+      border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;
+    }
+    .blob-teal-top {
+      background: var(--teal);
+      width: 90mm;
+      height: 80mm;
+      top: -10mm;
+      right: -20mm;
+      border-radius: 40% 60% 30% 70% / 60% 40% 60% 40%;
+    }
+    .blob-lime {
+      background: var(--lime);
+      width: 80mm;
+      height: 70mm;
+      top: 55mm;
+      left: -10mm;
+      border-radius: 50% 50% 60% 40% / 40% 60% 40% 60%;
+    }
+    .blob-teal-mid {
+      background: var(--teal);
+      width: 85mm;
+      height: 65mm;
+      top: 65mm;
+      right: -15mm;
+      border-radius: 60% 40% 50% 50% / 50% 50% 60% 40%;
+    }
+    .blob-peach {
+      background: #e8a080;
+      width: 50mm;
+      height: 45mm;
+      top: 110mm;
+      left: 50mm;
+      border-radius: 50% 60% 40% 60% / 60% 40% 60% 40%;
+    }
+
+    /* ======= ILLUSTRATION HERO ======= */
+    .hero-img {
+      position: absolute;
+      top: 8mm;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 85mm;
+      height: auto;
+      object-fit: contain;
+      object-position: top center;
+      z-index: 2;
+      mix-blend-mode: multiply;
+    }
+
+    /* ======= CONTENU ======= */
+    .content {
       position: absolute;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: 40% center;
-      z-index: 1;
-      mix-blend-mode: multiply;
-      opacity: 0.8;
-    }
-
-    .content {
-      position: absolute;
-      top: 10mm;
-      left: 10mm;
-      right: 10mm;
-      bottom: 10mm;
+      right: 0;
+      bottom: 0;
       z-index: 5;
       display: flex;
       flex-direction: column;
       align-items: center;
-      text-align: center;
+      padding: 7mm 10mm 8mm;
+      box-sizing: border-box;
     }
 
-    .header-box {
-      margin-top: 10mm;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
+    /* HEADER */
     .logo-img {
-      width: 120mm;
+      width: 95mm;
       height: auto;
       mix-blend-mode: multiply;
-      margin-bottom: 5mm;
+      margin-bottom: 1mm;
     }
 
     .subtitle {
-      font-size: 18pt;
-      font-weight: 800;
+      font-size: 11pt;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.12em;
       color: var(--black);
-      background: rgba(238, 227, 205, 0.9);
-      padding: 2mm 6mm;
-      border-radius: 30px;
-      margin-bottom: 30mm;
+      margin-bottom: 28mm;
     }
 
-    .main-title {
-      font-size: 38pt;
-      font-weight: 800;
-      line-height: 1.15;
+    /* TITRE PRINCIPAL */
+    .title-box {
+      background: var(--cream);
+      border-radius: 20px;
+      padding: 6mm 12mm;
+      margin-bottom: 8mm;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+    }
+
+    .title-box h2 {
+      font-size: 33pt;
+      font-weight: 900;
+      line-height: 1.2;
       text-transform: uppercase;
       letter-spacing: -0.01em;
       color: var(--black);
-      margin-bottom: 30mm;
-      text-shadow: 2px 2px 0px var(--cream);
-      background: rgba(238, 227, 205, 0.7);
-      padding: 5mm 10mm;
-      border-radius: 10px;
+      margin: 0;
     }
 
-    .badges-container {
-      position: relative;
+    /* MACARONS */
+    .badges-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       width: 100%;
-      height: 70mm;
+      gap: 8mm;
+      margin-bottom: 8mm;
       margin-top: auto;
-      margin-bottom: 30mm;
     }
 
-    .badge-cities {
-      position: absolute;
-      left: 10mm;
-      top: -20mm;
+    .badge-location {
       background: var(--lime);
       color: var(--black);
-      width: 65mm;
-      height: 65mm;
+      width: 68mm;
+      height: 68mm;
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      font-size: 16pt;
-      font-weight: 800;
-      line-height: 1.3;
-      border: var(--border);
-      box-shadow: 4px 4px 0px var(--black);
-      transform: rotate(-3deg);
-      z-index: 10;
-    }
-
-    .badge-nomade {
-      position: absolute;
-      right: 15mm;
-      bottom: -8mm;
-      background: var(--orange);
-      color: var(--white);
-      width: 40mm;
-      height: 40mm;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      font-family: 'Walter Turncoat', cursive;
-      font-size: 20pt;
-      line-height: 1;
-      border: var(--border);
-      box-shadow: 4px 4px 0px var(--black);
-      transform: rotate(8deg);
-      z-index: 10;
-    }
-
-    .bottom-box {
-      margin-top: auto;
-      background: var(--teal-dark);
-      color: var(--cream);
-      width: 100%;
-      padding: 8mm;
-      border: var(--border);
-      border-radius: 15px;
-      box-sizing: border-box;
-      box-shadow: 4px 4px 0px var(--black);
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 3mm;
+      justify-content: center;
+      text-align: center;
+      padding: 5mm;
+      box-sizing: border-box;
+      flex-shrink: 0;
     }
 
-    .contact-line {
-      font-size: 19pt;
-      font-weight: 800;
-      letter-spacing: 0.03em;
+    .badge-location .pin {
+      font-size: 18pt;
+      margin-bottom: 2mm;
+    }
+
+    .badge-location .pre-title {
+      font-size: 8pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1mm;
+    }
+
+    .badge-location .city {
+      font-size: 16pt;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      margin-bottom: 2mm;
+    }
+
+    .badge-location .cities-list {
+      font-size: 8.5pt;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    .badge-nomade {
+      background: var(--orange);
+      color: var(--white);
+      width: 58mm;
+      height: 58mm;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 5mm;
+      box-sizing: border-box;
+      flex-shrink: 0;
+    }
+
+    .badge-nomade .van {
+      font-size: 18pt;
+      margin-bottom: 2mm;
+    }
+
+    .badge-nomade .title {
+      font-size: 17pt;
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 1.1;
+      margin-bottom: 2mm;
+    }
+
+    .badge-nomade .desc {
+      font-size: 8pt;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    /* BARRE CONTACT */
+    .contact-bar {
+      background: var(--cream);
+      border-radius: 16px;
+      padding: 5mm 8mm;
+      width: 100%;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .contact-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5mm;
+    }
+
+    .contact-item .icon {
+      width: 9mm;
+      height: 9mm;
+      background: var(--teal);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14pt;
+      color: var(--white);
+    }
+
+    .contact-item span {
+      font-size: 9pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--black);
+    }
+
+    .contact-divider {
+      width: 0.5mm;
+      height: 12mm;
+      background: rgba(0,0,0,0.15);
     }
 
   </style>
@@ -208,52 +308,67 @@
 <body>
 
   <div class="poster">
-    <img src="assets/images/hero.png" alt="Illustration fond" class="bg-img">
-    
+    <!-- Blobs colorés de fond -->
+    <div class="blob blob-orange"></div>
+    <div class="blob blob-teal-top"></div>
+    <div class="blob blob-lime"></div>
+    <div class="blob blob-teal-mid"></div>
+    <div class="blob blob-peach"></div>
+
+    <!-- Illustration -->
+    <img src="assets/images/hero.png" alt="Illustration Yoga" class="hero-img">
+
+    <!-- Contenu -->
     <div class="content">
-      
-      <div class="header-box">
-        <img src="assets/images/logo.png" alt="YAKA YOGA Logo" class="logo-img">
-        <div class="subtitle">Yoga postural moderne & mobilité</div>
-      </div>
-      
-      <div class="main-title">
-        YOGA DYNAMIQUE / DOUX<br>
-        YOGA SUR CHAISE / PILATES
+      <img src="assets/images/logo.png" alt="YAKA YOGA Logo" class="logo-img">
+      <div class="subtitle">Yoga postural moderne & mobilité</div>
+
+      <div class="title-box">
+        <h2>YOGA DYNAMIQUE / DOUX<br>YOGA SUR CHAISE / PILATES</h2>
       </div>
 
-      <div class="badges-container">
-        <div class="badge-cities">
-          CLAMECY<br>
-          & ALENTOURS
+      <div class="badges-row">
+        <div class="badge-location">
+          <div class="pin">📍</div>
+          <div class="pre-title">Cours dans<br>la région de</div>
+          <div class="city">CLAMECY</div>
+          <div class="cities-list">CLAMECY • TANNAY<br>VILLIERS/YONNE<br>DIGES • EGLENY<br>ETC.</div>
         </div>
-        
+
         <div class="badge-nomade">
-          STUDIO<br>NOMADE
+          <div class="van">🚐</div>
+          <div class="title">STUDIO<br>NOMADE</div>
+          <div class="desc">Cours à domicile<br>et dans différentes<br>salles</div>
         </div>
       </div>
 
-      <div class="bottom-box">
-        <div class="contact-line">06 67 21 07 33</div>
-        <div class="contact-line">ELISE.YOGAYOGA@GMAIL.COM</div>
-        <div class="contact-line">YAKAYOGA-NIEVRE.COM</div>
+      <div class="contact-bar">
+        <div class="contact-item">
+          <div class="icon">📞</div>
+          <span>06 67 21 07 33</span>
+        </div>
+        <div class="contact-divider"></div>
+        <div class="contact-item">
+          <div class="icon">✉</div>
+          <span>elise.yogayoga@gmail.com</span>
+        </div>
+        <div class="contact-divider"></div>
+        <div class="contact-item">
+          <div class="icon">🌐</div>
+          <span>yakayoga-nievre.com</span>
+        </div>
       </div>
-
     </div>
   </div>
 
-  <div class="no-print" style="max-width: 800px; background: white; padding: 20px; font-family: sans-serif; font-size: 14px; border-radius: 8px;">
+  <div class="no-print" style="max-width: 800px; background: white; padding: 20px; font-family: sans-serif; font-size: 14px; border-radius: 8px; margin-top: 10px;">
     <h2>Instructions d'impression (Format A4)</h2>
-    <p>Cette affiche est conçue aux dimensions exactes du format A4 (210 x 297 mm).</p>
-    <p>Pour l'enregistrer en PDF prêt pour l'imprimeur ou l'imprimer directement :</p>
     <ul>
-      <li>Ouvrez ce fichier dans Chrome ou Safari</li>
-      <li>Faites <b>Cmd+P</b></li>
-      <li>Destination : <b>Enregistrer au format PDF</b> (ou votre imprimante)</li>
-      <li>Taille du papier : <b>A4</b></li>
-      <li>Marges : <b>Aucune</b> (très important)</li>
-      <li>Échelle : <b>Par défaut</b> (100%)</li>
-      <li>Options : <b>Cochez "Graphiques d'arrière-plan"</b></li>
+      <li>Ouvre ce fichier dans <b>Google Chrome</b></li>
+      <li>Fais <b>Cmd+P</b></li>
+      <li>Destination : <b>Enregistrer au format PDF</b></li>
+      <li>Taille : <b>A4</b> — Marges : <b>Aucune</b></li>
+      <li>Coche <b>"Graphiques d'arrière-plan"</b></li>
     </ul>
   </div>
 
