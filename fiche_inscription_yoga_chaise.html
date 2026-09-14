@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fiche d'inscription — Yoga sur Chaise YAKA YOGA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;1,9..40,400&family=Walter+Turncoat&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --orange: #f0703d;
+      --lime: #c8d44e;
+      --teal: #3d8c6e;
+      --cream: #f9f5ea;
+      --white: #ffffff;
+      --black: #1a1a1a;
+      --gray: #e8e4d8;
+    }
+
+    @page {
+      size: 148mm 210mm; /* A5 portrait */
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      margin: 0;
+      padding: 20px;
+      background-color: #888;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      font-family: 'DM Sans', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .card {
+      width: 148mm;
+      height: 210mm;
+      position: relative;
+      overflow: hidden;
+      background-color: var(--cream);
+      color: var(--black);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+      display: flex;
+      flex-direction: column;
+    }
+
+    @media print {
+      body {
+        background: transparent;
+        padding: 0;
+      }
+      .card {
+        box-shadow: none;
+        margin: 0;
+      }
+      .no-print {
+        display: none !important;
+      }
+    }
+
+    /* ======= BLOBS DE FOND ======= */
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      z-index: 1;
+      opacity: 0.9;
+    }
+
+    .blob-orange {
+      background: var(--orange);
+      width: 48mm;
+      height: 48mm;
+      top: -10mm;
+      left: -10mm;
+      border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;
+    }
+
+    .blob-teal {
+      background: var(--teal);
+      width: 42mm;
+      height: 38mm;
+      top: -8mm;
+      right: -10mm;
+      border-radius: 40% 60% 30% 70% / 60% 40% 60% 40%;
+    }
+
+    .blob-lime {
+      background: var(--lime);
+      width: 38mm;
+      height: 32mm;
+      top: 28mm;
+      left: -8mm;
+      border-radius: 50% 50% 60% 40% / 40% 60% 40% 60%;
+    }
+
+    .blob-bottom {
+      background: var(--teal);
+      width: 55mm;
+      height: 42mm;
+      bottom: -8mm;
+      right: -10mm;
+      border-radius: 60% 40% 50% 50% / 50% 50% 60% 40%;
+      opacity: 0.75;
+    }
+
+    .blob-orange-bottom {
+      background: var(--orange);
+      width: 38mm;
+      height: 30mm;
+      bottom: -5mm;
+      left: -8mm;
+      border-radius: 40% 60% 30% 70% / 60% 40% 60% 40%;
+      opacity: 0.7;
+    }
+
+    /* ======= HERO ILLUSTRATION ======= */
+    .hero-img {
+      position: absolute;
+      top: 2mm;
+      right: 4mm;
+      width: 34mm;
+      height: auto;
+      object-fit: contain;
+      z-index: 3;
+      mix-blend-mode: multiply;
+    }
+
+    /* ======= CONTENU ======= */
+    .content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 5;
+      display: flex;
+      flex-direction: column;
+      padding: 5mm 7mm 5mm;
+    }
+
+    /* HEADER */
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 3mm;
+      margin-bottom: 2mm;
+    }
+
+    .logo-img {
+      width: 42mm;
+      height: auto;
+      mix-blend-mode: multiply;
+    }
+
+    /* TITRE */
+    .title-block {
+      margin-bottom: 4mm;
+    }
+
+    .title-tag {
+      display: inline-block;
+      background: var(--orange);
+      color: var(--white);
+      font-size: 6.5pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 1mm 3mm;
+      border-radius: 20px;
+      margin-bottom: 1.5mm;
+    }
+
+    .title-main {
+      font-size: 16pt;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      line-height: 1.1;
+      color: var(--black);
+    }
+
+    .title-main span {
+      color: var(--teal);
+    }
+
+    .title-sub {
+      font-size: 7.5pt;
+      font-weight: 500;
+      color: #555;
+      margin-top: 0.8mm;
+      font-style: italic;
+    }
+
+    /* SEPARATEUR */
+    .divider {
+      height: 0.5mm;
+      background: linear-gradient(90deg, var(--orange), var(--teal), var(--lime));
+      border-radius: 1mm;
+      margin-bottom: 4mm;
+      opacity: 0.6;
+    }
+
+    /* SECTION CHAMPS */
+    .section-label {
+      font-size: 6pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--teal);
+      margin-bottom: 2.5mm;
+    }
+
+    .fields-group {
+      margin-bottom: 3.5mm;
+    }
+
+    .field-row {
+      display: flex;
+      gap: 3mm;
+      margin-bottom: 3mm;
+    }
+
+    .field {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1mm;
+    }
+
+    .field.full {
+      flex: 1 0 100%;
+    }
+
+    .field label {
+      font-size: 6.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #555;
+    }
+
+    .field-line {
+      width: 100%;
+      height: 6.5mm;
+      border: none;
+      border-bottom: 0.7mm solid rgba(0,0,0,0.2);
+      background: transparent;
+      border-radius: 0;
+    }
+
+    /* ABONNEMENTS */
+    .abo-section {
+      margin-bottom: 3.5mm;
+    }
+
+    .abo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2mm;
+    }
+
+    .abo-card {
+      background: var(--white);
+      border-radius: 3mm;
+      padding: 2.5mm;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      border: 0.5mm solid rgba(0,0,0,0.1);
+      position: relative;
+    }
+
+    .abo-card.highlight {
+      border-color: var(--teal);
+      background: rgba(61, 140, 110, 0.06);
+    }
+
+    .abo-card .abo-badge {
+      position: absolute;
+      top: -2mm;
+      right: 2mm;
+      background: var(--teal);
+      color: white;
+      font-size: 4.5pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.5mm 1.5mm;
+      border-radius: 10px;
+    }
+
+    .abo-check-area {
+      width: 6mm;
+      height: 6mm;
+      border: 0.6mm solid rgba(0,0,0,0.25);
+      border-radius: 50%;
+      margin-bottom: 1.5mm;
+      flex-shrink: 0;
+    }
+
+    .abo-name {
+      font-size: 6.5pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--black);
+      line-height: 1.2;
+      margin-bottom: 0.8mm;
+    }
+
+    .abo-price {
+      font-size: 9.5pt;
+      font-weight: 900;
+      color: var(--orange);
+      line-height: 1;
+      margin-bottom: 0.5mm;
+    }
+
+    .abo-detail {
+      font-size: 5.5pt;
+      font-weight: 500;
+      color: #777;
+      line-height: 1.3;
+    }
+
+    /* NOTES / REMARQUES */
+    .notes-section {
+      margin-bottom: 3.5mm;
+    }
+
+    .notes-lines {
+      display: flex;
+      flex-direction: column;
+      gap: 3.5mm;
+    }
+
+    .notes-line {
+      width: 100%;
+      height: 0.5mm;
+      background: rgba(0,0,0,0.18);
+      border-radius: 1mm;
+    }
+
+    /* ACCORD RGPD */
+    .rgpd-block {
+      display: flex;
+      align-items: flex-start;
+      gap: 2mm;
+      margin-bottom: 3mm;
+    }
+
+    .rgpd-check {
+      width: 4mm;
+      height: 4mm;
+      border: 0.5mm solid rgba(0,0,0,0.3);
+      border-radius: 1mm;
+      flex-shrink: 0;
+      margin-top: 0.3mm;
+    }
+
+    .rgpd-text {
+      font-size: 5pt;
+      font-weight: 400;
+      color: #777;
+      line-height: 1.4;
+    }
+
+    /* FOOTER CONTACT */
+    .footer-bar {
+      margin-top: auto;
+      background: var(--cream);
+      border-top: 0.5mm solid rgba(0,0,0,0.1);
+      padding: 2.5mm 0 1mm;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      gap: 1mm;
+    }
+
+    .footer-item {
+      display: flex;
+      align-items: center;
+      gap: 1.5mm;
+    }
+
+    .footer-dot {
+      width: 4mm;
+      height: 4mm;
+      background: var(--teal);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 6pt;
+      flex-shrink: 0;
+    }
+
+    .footer-text {
+      font-size: 5.5pt;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      color: var(--black);
+    }
+
+    .footer-sep {
+      width: 0.4mm;
+      height: 5mm;
+      background: rgba(0,0,0,0.15);
+    }
+
+    /* Signature date */
+    .signature-row {
+      display: flex;
+      gap: 3mm;
+      margin-bottom: 3mm;
+    }
+
+    .sig-field {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1mm;
+    }
+
+    .sig-field label {
+      font-size: 6.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #555;
+    }
+
+    .sig-field .field-line {
+      height: 10mm;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <!-- Blobs décoratifs -->
+    <div class="blob blob-orange"></div>
+    <div class="blob blob-teal"></div>
+    <div class="blob blob-lime"></div>
+    <div class="blob blob-bottom"></div>
+    <div class="blob blob-orange-bottom"></div>
+
+    <!-- Illustration hero -->
+    <img src="assets/images/hero.png" alt="Yoga sur chaise" class="hero-img">
+
+    <!-- Contenu principal -->
+    <div class="content">
+
+      <!-- En-tête -->
+      <div class="header">
+        <img src="assets/images/logo.png" alt="YAKA YOGA" class="logo-img">
+      </div>
+
+      <!-- Titre -->
+      <div class="title-block">
+        <div class="title-tag">📋 Fiche d'inscription</div>
+        <div class="title-main">Yoga sur <span>chaise</span></div>
+        <div class="title-sub">Saison 2025 — 2026 · Cours collectifs</div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Coordonnées -->
+      <div class="fields-group">
+        <div class="section-label">👤 Coordonnées</div>
+        <div class="field-row">
+          <div class="field">
+            <label>Nom</label>
+            <div class="field-line"></div>
+          </div>
+          <div class="field">
+            <label>Prénom</label>
+            <div class="field-line"></div>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Date de naissance</label>
+            <div class="field-line"></div>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Téléphone</label>
+            <div class="field-line"></div>
+          </div>
+          <div class="field">
+            <label>E-mail</label>
+            <div class="field-line"></div>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Contact d'urgence &amp; tél.</label>
+            <div class="field-line"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Abonnement -->
+      <div class="abo-section">
+        <div class="section-label">✨ Abonnement choisi</div>
+        <div class="abo-grid">
+          <div class="abo-card">
+            <div class="abo-check-area"></div>
+            <div class="abo-name">Cours<br>à l'unité</div>
+            <div class="abo-price">15€</div>
+            <div class="abo-detail">par séance<br>sans engagement</div>
+          </div>
+          <div class="abo-card">
+            <div class="abo-check-area"></div>
+            <div class="abo-name">Carte<br>5 cours</div>
+            <div class="abo-price">70€</div>
+            <div class="abo-detail">5 cours au choix<br>= 14€/cours</div>
+          </div>
+          <div class="abo-card highlight">
+            <div class="abo-badge">⭐ Promo</div>
+            <div class="abo-check-area"></div>
+            <div class="abo-name">Carte<br>trimestre</div>
+            <div class="abo-price">130€</div>
+            <div class="abo-detail">10 cours · 3 mois<br>= 13€/cours</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Remarques -->
+      <div class="notes-section">
+        <div class="section-label">📝 Remarques santé / informations utiles</div>
+        <div class="notes-lines">
+          <div class="notes-line"></div>
+          <div class="notes-line"></div>
+          <div class="notes-line"></div>
+        </div>
+      </div>
+
+      <!-- Signature -->
+      <div class="signature-row">
+        <div class="sig-field">
+          <label>Date</label>
+          <div class="field-line"></div>
+        </div>
+        <div class="sig-field" style="flex: 2;">
+          <label>Signature</label>
+          <div class="field-line"></div>
+        </div>
+      </div>
+
+      <!-- RGPD -->
+      <div class="rgpd-block">
+        <div class="rgpd-check"></div>
+        <div class="rgpd-text">J'accepte que mes données personnelles soient conservées par YAKA YOGA à des fins d'organisation des cours et ne seront pas transmises à des tiers. Conformément au RGPD, je peux demander leur suppression à tout moment.</div>
+      </div>
+
+      <!-- Footer contact -->
+      <div class="footer-bar">
+        <div class="footer-item">
+          <div class="footer-dot">📞</div>
+          <div class="footer-text">06 67 21 07 33</div>
+        </div>
+        <div class="footer-sep"></div>
+        <div class="footer-item">
+          <div class="footer-dot">✉</div>
+          <div class="footer-text">elise.yogayoga@gmail.com</div>
+        </div>
+        <div class="footer-sep"></div>
+        <div class="footer-item">
+          <div class="footer-dot">🌐</div>
+          <div class="footer-text">yakayoga-nievre.com</div>
+        </div>
+      </div>
+
+    </div><!-- /content -->
+  </div><!-- /card -->
+
+  <!-- Instructions impression (non imprimées) -->
+  <div class="no-print" style="max-width: 600px; background: white; padding: 20px; font-family: sans-serif; font-size: 14px; border-radius: 8px; margin-top: 10px; line-height: 1.6;">
+    <h2 style="font-size: 18px; margin-bottom: 12px;">🖨️ Instructions d'impression (Format A5)</h2>
+    <ul style="padding-left: 20px; color: #333;">
+      <li>Ouvre ce fichier dans <b>Google Chrome</b></li>
+      <li>Fais <b>Cmd+P</b> (Mac) ou <b>Ctrl+P</b> (Windows)</li>
+      <li>Taille : <b>A5</b> — Marges : <b>Aucune</b></li>
+      <li>Coche <b>"Graphiques d'arrière-plan"</b> pour les couleurs</li>
+      <li>Destination : <b>Enregistrer au format PDF</b></li>
+    </ul>
+    <p style="margin-top: 10px; color: #666; font-size: 12px;">💡 Astuce : imprimez recto-verso sur du papier A5 (ou coupez une feuille A4 en deux) pour économiser du papier.</p>
+  </div>
+
+</body>
+</html>
